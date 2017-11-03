@@ -1,0 +1,76 @@
+
+<!-- <h1><?php //echo $this->getHelloWorldTxt(); ?></h1> -->
+
+<!-- <script src="http://127.0.0.1/test/snowjs/snowstorm.js"></script>
+
+<script src="http://127.0.0.1/test/snowjs/lights/soundmanager2-nodebug-jsmin.js"></script>
+<script src="http://yui.yahooapis.com/combo?2.6.0/build/yahoo-dom-event/yahoo-dom-event.js&2.6.0/build/animation/animation-min.js"></script>
+<script src="http://127.0.0.1/test/snowjs/lights/christmaslights.js"></script>
+<link rel="stylesheet" type="text/css" href="http://127.0.0.1/test/snowjs/lights/christmaslights.css">
+
+<div id="lights"></div> -->
+
+
+<?php
+
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+
+$snowColor = $conf = '#' . $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('festiveseason/snowstrom/snow_color');
+$snowSpeed = $conf = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('festiveseason/snowstrom/snow_speed');
+
+$flaxMax = $conf = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('festiveseason/snowstrom/flax_max');
+$flaxMaxActive = $conf = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('festiveseason/snowstrom/flax_maxactive');
+
+
+$snowCharacter = $conf = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('festiveseason/snowstrom/snow_character');
+if($snowCharacter == NULL){
+	$snowCharacter = '•';
+}
+
+
+$followMouse = $conf = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('festiveseason/snowstrom/follow_mouse');
+
+
+$snowStick = $conf = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('festiveseason/snowstrom/snow_stick');
+
+
+$enableModule = $conf = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('festiveseason/general/enable');
+
+?>
+
+
+
+<script>
+
+var enableModule = '<?php echo $enableModule?>';
+if(parseInt(enableModule) == 0){
+	snowStorm.stop()
+}
+
+	
+
+snowStorm.snowColor = '<?php echo $snowColor?>';
+snowStorm.animationInterval = <?php echo $snowSpeed?>;
+snowStorm.flakesMax = <?php echo $flaxMax?>;
+snowStorm.flakesMaxActive = <?php echo $flaxMaxActive?>;
+snowStorm.snowCharacter = '<?php echo $snowCharacter?>';
+snowStorm.followMouse = <?php echo $followMouse?>;
+snowStorm.snowStick = <?php echo $snowStick?>;
+
+var urlBase = '<?php echo $this->getViewFileUrl("Escorpian_Festiveseason::lights/")?>';
+
+</script>
+
+
+
+<script type="text/javascript">
+
+
+
+</script>
+
+<?php if($enableModule):?>
+<div id="lights">
+</div>
+<?php endif;?>

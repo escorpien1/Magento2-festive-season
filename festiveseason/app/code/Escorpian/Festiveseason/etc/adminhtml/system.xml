@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="escorpian" translate="label" sortOrder="10">
+            <label>Escorpian</label>
+        </tab>
+        <section id="festiveseason" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Festive Season</label>
+            <tab>escorpian</tab>
+            <resource>Escorpian_Festiveseason::escorpian_festiveseason</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                
+            </group>
+
+
+            <group id="snowstrom" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Snow Strom Configuration</label>
+                
+                <field id="snow_color" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Snow Color</label>
+                </field>
+                
+
+                <field id="snow_character" translate="label" type="text" sortOrder="4" showInDefault="5" showInWebsite="0" showInStore="0">
+                    <label>Snow Character</label>
+                </field>
+
+
+                <field id="follow_mouse" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Follow Mouse</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+
+                <field id="snow_stick" translate="label" type="select" sortOrder="7" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Snow Stick on Bottom</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+
+
+            </group>
+
+        </section>
+    </system>
+</config>
